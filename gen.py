@@ -50,7 +50,7 @@ def create_perfect_commit():
                 f.write("console.log('Hello World');")
 
     # Stage the new/modified files in set1
-    run_git_command(f"git add {set1_dir}", repo_dir)
+    run_git_command(f"git add {set1_dir}/*", repo_dir)  # Add files inside set1 directory individually
 
     # Commit the changes
     run_git_command('git commit -m "Add perfect web app structure in set1"', repo_dir)
