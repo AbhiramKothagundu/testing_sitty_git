@@ -40,7 +40,8 @@ def create_perfect_commit():
     # Create the clean web app structure in /set1 folder
     files = ["index.html", "style.css", "app.js"]
     for file_name in files:
-        with open(os.path.join(set1_dir, file_name), "w") as f:
+        file_path = os.path.join(set1_dir, file_name)
+        with open(file_path, "w") as f:
             if file_name == "index.html":
                 f.write("<!DOCTYPE html><html><head><title>Perfect Web App</title></head><body><h1>Hello World</h1></body></html>")
             elif file_name == "style.css":
@@ -48,8 +49,10 @@ def create_perfect_commit():
             elif file_name == "app.js":
                 f.write("console.log('Hello World');")
 
-    # Stage and commit the clean structure
-    run_git_command("git add .", repo_dir)
+    # Stage the new/modified files in set1
+    run_git_command(f"git add {set1_dir}", repo_dir)
+
+    # Commit the changes
     run_git_command('git commit -m "Add perfect web app structure in set1"', repo_dir)
 
 # Main function to simulate dirty commits with random clean commits
